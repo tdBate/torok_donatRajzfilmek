@@ -29,13 +29,19 @@ export function RajzfilmLista() {
 
     return (
         <>
-            <div>
-                <p>Rajzfilmek száma: {rajzfilmekSzama()}</p>
-                <p>Legkorábbi: {legkorabbiMegjelenesEv()}</p>
-                <p>Legkorábbi: {legkesobbiMegjelenesEv()}</p>
+            <div className="container">
+                <div className="row">
+                    <div>
+                        <p>Rajzfilmek száma: {rajzfilmekSzama()}</p>
+                        <p>Legkorábbi: {legkorabbiMegjelenesEv()}</p>
+                        <p>Legkorábbi: {legkesobbiMegjelenesEv()}</p>
+                    </div>
+
+
+                    {rajzfilmek.map((item) => (<Rajzfilm key={item.id} data={item}></Rajzfilm>))}
+                </div>
             </div>
 
-            {rajzfilmek.map((item) => (<Rajzfilm key={item.id} data={item}></Rajzfilm>))}
         </>
     )
 }

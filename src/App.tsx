@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.css"
 function App() {
   return (
     <>
-      <h1>Rajzfilmek</h1>
+      <h1 className='text-center'>Rajzfilmek</h1>
       <RajzfilmLista></RajzfilmLista>
     </>
   )
