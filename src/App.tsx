@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import { RajzfilmLista } from './components/RajzfilmLista'
 import "bootstrap/dist/css/bootstrap.css"
