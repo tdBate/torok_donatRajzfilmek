@@ -15,8 +15,26 @@ export function RajzfilmLista() {
 
     }, [])
 
+    function rajzfilmekSzama(): number { return rajzfilmek.length; }
+    function legkorabbiMegjelenesEv(): number {
+        let temp = rajzfilmek.map(a => a.megjelenesEve)
+        return Math.min(...temp);
+    }
+
+    function legkesobbiMegjelenesEv(): number {
+        let temp = rajzfilmek.map(a => a.megjelenesEve)
+        return Math.max(...temp);
+    }
+
+
     return (
         <>
+            <div>
+                <p>Rajzfilmek száma: {rajzfilmekSzama()}</p>
+                <p>Legkorábbi: {legkorabbiMegjelenesEv()}</p>
+                <p>Legkorábbi: {legkesobbiMegjelenesEv()}</p>
+            </div>
+
             {rajzfilmek.map((item) => (<Rajzfilm key={item.id} data={item}></Rajzfilm>))}
         </>
     )
