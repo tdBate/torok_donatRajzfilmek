@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import type { Rajzfilm } from "../models";
 
 interface RajzfilmProps {
@@ -5,6 +6,7 @@ interface RajzfilmProps {
 }
 
 export function Rajzfilm(props: RajzfilmProps) {
+    const [premier, setPremier] = useState<boolean>(false);
 
     return (
         <>
@@ -24,6 +26,12 @@ export function Rajzfilm(props: RajzfilmProps) {
                 {
                     props.data.megjelenesEve > 2010 && <p>Modern rajzfilm</p>
                 }
+
+                {
+                    premier && <p>Premier: {props.data.premier}</p>
+                }
+
+                <button onClick={() => setPremier(!premier)}>{premier ? "Elrejt" : "Mutat"}</button>
             </div>
         </>
     )
