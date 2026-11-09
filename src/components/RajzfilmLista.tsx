@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
-import type { Rajzfilm } from "../models"
+import type { Rajzfilm as RajzfilmType } from "../models"
+import { Rajzfilm } from "./Rajzfilm";
 
 export function RajzfilmLista() {
-    const [rajzfilmek, setRajzfilmek] = useState<Rajzfilm[]>([]);
+    const [rajzfilmek, setRajzfilmek] = useState<RajzfilmType[]>([]);
 
     useEffect(() => {
         async function load() {
             const response = await fetch("rajzfilmek.json");
-            const data: Rajzfilm[] = await response.json();
+            const data: RajzfilmType[] = await response.json();
             setRajzfilmek(data);
         }
         load();
@@ -16,7 +17,7 @@ export function RajzfilmLista() {
 
     return (
         <>
-
+            {rajzfilmek.map((item) => (<Rajzfilm key={item.id} data={item}></Rajzfilm>))}
         </>
     )
 }
